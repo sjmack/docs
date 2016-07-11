@@ -1,2 +1,1 @@
-# docs
-DDBJ documents
+# DDBJ documents
