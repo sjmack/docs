@@ -1,0 +1,2 @@
+# docs
+DDBJ documents
