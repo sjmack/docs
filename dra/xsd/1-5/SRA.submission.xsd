@@ -2,17 +2,13 @@
 <!-- INSDC Sequence Read Archive resource Submission (SRA/ERA/DRA) object XML specification -->
 <!-- $Id$ -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
   <!--  <xs:include schemaLocation="http://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/sra/doc/SRA_1-5/SRA.common.xsd?view=co"/>  -->
-
   <xs:include schemaLocation="SRA.common.xsd"/>
-
   <xs:complexType name="SubmissionType">
     <xs:annotation>
       <xs:documentation> A Submission type is used to describe an object that contains submission information, contacts for the submission,
         actions to be performed by the Archive, and file manifest. </xs:documentation>
     </xs:annotation>
-
     <xs:sequence>
       <xs:element name="IDENTIFIERS" type="IdentifierType" maxOccurs="1" minOccurs="0">
         <xs:annotation>
@@ -54,7 +50,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-
       <xs:element name="ACTIONS" minOccurs="0" maxOccurs="1">
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="unbounded">
@@ -122,7 +117,6 @@
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
-
                     </xs:complexType>
                   </xs:element>
                   <xs:element name="SUPPRESS">
@@ -138,7 +132,6 @@
                           <xs:documentation> Accession or refname that is the target for the action. </xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
-
                     </xs:complexType>
                   </xs:element>
                   <xs:element name="HOLD">
@@ -154,14 +147,12 @@
                             hold is taken to mean hold until released by the submitter. </xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
-
                       <xs:attribute name="HoldUntilDate" type="xs:date" use="optional">
                         <xs:annotation>
                           <xs:documentation> Direct the SRA to release the record on or after the specified number of date.
                           </xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
-
                     </xs:complexType>
                   </xs:element>
                   <xs:element name="RELEASE">
@@ -176,10 +167,8 @@
                             validate all objects in this submission. </xs:documentation>
                         </xs:annotation>
                       </xs:attribute>
-
                     </xs:complexType>
                   </xs:element>
-
                   <xs:element name="PROTECT">
                     <xs:annotation>
                       <xs:documentation> Communicate the intention that the data are to be deposited in a protected database and not made
@@ -218,7 +207,6 @@
                           </xs:restriction>
                         </xs:simpleType>
                       </xs:attribute>
-
                     </xs:complexType>
                   </xs:element>
                 </xs:choice>
@@ -227,9 +215,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-
-
-
       <xs:element name="SUBMISSION_LINKS" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> Archive created links to associated submissions. </xs:documentation>
@@ -240,7 +225,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-
       <xs:element name="SUBMISSION_ATTRIBUTES" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> Archive assigned properties and attributes of a SUBMISSION. </xs:documentation>
@@ -251,11 +235,8 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-
     </xs:sequence>
-
     <xs:attributeGroup ref="NameGroup"/>
-
     <xs:attribute name="submission_date" type="xs:dateTime" use="optional">
       <xs:annotation>
         <xs:documentation> Submitter assigned preparation date of this submission object. </xs:documentation>
@@ -271,23 +252,16 @@
         <xs:documentation> Laboratory name within submitting institution. </xs:documentation>
       </xs:annotation>
     </xs:attribute>
-
-
   </xs:complexType>
-
   <xs:complexType name="SubmissionSetType">
     <xs:sequence minOccurs="1" maxOccurs="unbounded">
       <xs:element name="SUBMISSION" type="SubmissionType"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:element name="SUBMISSION_SET" type="SubmissionSetType">
     <xs:annotation>
       <xs:documentation> An SUBMISSION_SET is a container for a set of studies and a common namespace. </xs:documentation>
     </xs:annotation>
-
   </xs:element>
-
   <xs:element name="SUBMISSION" type="SubmissionType"/>
-
 </xs:schema>

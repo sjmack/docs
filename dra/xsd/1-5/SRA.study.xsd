@@ -2,10 +2,8 @@
 <!-- INSDC Sequence Read Archive resource Study (SRP/ERP/DRP) object XML specification -->
 <!-- $Id$ -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
   <!--  <xs:include schemaLocation="http://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/sra/doc/SRA_1-5/SRA.common.xsd?view=co"/>  -->
   <xs:include schemaLocation="SRA.common.xsd"/>
-
   <xs:element name="STUDY_SET">
     <xs:annotation>
       <xs:documentation>STUDY_SET is a container for a set of studies.</xs:documentation>
@@ -16,16 +14,13 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
   <xs:element name="STUDY" type="StudyType"/>
-
   <xs:complexType name="StudyType">
     <xs:annotation>
       <xs:documentation> A Study is a container for a sequencing investigation that may comprise multiple experiments. The
       Study has an overall goal, but is otherwise minimally defined in the SRA. A Study is composed of a descriptor, zero
       or more experiments, and zero or more analyses. The submitter may decorate the Study with web links and properties. </xs:documentation>
     </xs:annotation>
-
     <xs:sequence>
       <xs:element name="IDENTIFIERS" type="IdentifierType" maxOccurs="1" minOccurs="0">
         <xs:annotation>
@@ -67,7 +62,6 @@
                 the study record to the submitter's LIMS. </xs:documentation>
               </xs:annotation>
             </xs:element>
-
             <xs:element name="RELATED_STUDIES" minOccurs="0" maxOccurs="1">
               <xs:complexType>
                 <xs:sequence>
@@ -90,11 +84,9 @@
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
-
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-
             <xs:element name="STUDY_DESCRIPTION" maxOccurs="1" minOccurs="0" type="xs:string">
               <xs:annotation>
                 <xs:documentation> More extensive free-form description of the study. </xs:documentation>
@@ -103,7 +95,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-
       <xs:element name="STUDY_LINKS" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> Links to resources related to this study (publication, datasets, online databases). </xs:documentation>
@@ -114,7 +105,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-
       <xs:element name="STUDY_ATTRIBUTES" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> Properties and attributes of the study. These can be entered as free-form tag-value pairs.
@@ -130,7 +120,6 @@
     </xs:sequence>
     <xs:attributeGroup ref="NameGroup"/>
   </xs:complexType>
-
   <!-- STRING ENUMERATIONS BEGIN -->
   <xs:simpleType name="typeStudyTypes">
     <xs:restriction base="xs:string">
@@ -148,7 +137,7 @@
         <xs:annotation>
           <xs:documentation> Sequencing of transcription elements. </xs:documentation>
         </xs:annotation>
-      </xs:enumeration>                                            
+      </xs:enumeration>
       <xs:enumeration value="Transcriptome Analysis">
         <xs:annotation>
           <xs:documentation> Characterization of transcription elements. </xs:documentation>
@@ -186,12 +175,11 @@
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Other">
-    <xs:annotation>
+        <xs:annotation>
           <xs:documentation> Study type not listed. </xs:documentation>
-    </xs:annotation>
+        </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   <!-- STRING ENUMERATIONS END -->
-
 </xs:schema>

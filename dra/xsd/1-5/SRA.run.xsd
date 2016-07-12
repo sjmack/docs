@@ -2,11 +2,8 @@
 <!-- INSDC Sequence Read Archive resource Run (SRR/ERR/DRR) object XML specification -->
 <!-- $Id$ -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
   <!--  <xs:include schemaLocation="http://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/sra/doc/SRA_1-5/SRA.common.xsd?view=co"/>  -->
-
   <xs:include schemaLocation="SRA.common.xsd"/>
-
   <xs:complexType name="RunType">
     <xs:annotation>
       <xs:documentation>A Run contains a group of reads generated for a particular experiment. NB: formerly bounded by physical production
@@ -14,7 +11,6 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="IDENTIFIERS" type="IdentifierType" maxOccurs="1" minOccurs="0"/>
-
       <xs:element name="TITLE" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> Short text that can be used to distinctively call out individual runs in searches or in displays.
@@ -36,22 +32,17 @@
             </xs:element>
           </xs:all>
           <xs:attributeGroup ref="RefNameGroup"/>
-
         </xs:complexType>
       </xs:element>
       <xs:element name="SPOT_DESCRIPTOR" type="SpotDescriptorType" maxOccurs="1" minOccurs="0"/>
-
       <xs:element name="PLATFORM" type="PlatformType" maxOccurs="1" minOccurs="0"/>
-
       <xs:element name="PROCESSING" maxOccurs="1" minOccurs="0" type="ProcessingType"/>
-
       <xs:sequence>
         <xs:element name="DATA_BLOCK" maxOccurs="unbounded" minOccurs="0">
           <xs:annotation>
             <xs:documentation> Convenience partition for processing large datasets. </xs:documentation>
           </xs:annotation>
           <xs:complexType>
-
             <xs:sequence>
               <xs:element name="FILES">
                 <xs:annotation>
@@ -266,11 +257,11 @@
                                     SRA File Formats Guide for definitions of these file formats, and the SRA Submission Guidelines document
                                     for data series that are appropriate for your study. </xs:documentation>
                                 </xs:annotation>
-                               </xs:enumeration>
-                               <xs:enumeration value="generic_fastq">
-                                 <xs:annotation>
-                                   <xs:documentation>Used internally by DDBJ to load fastq files with variable lengths. Not defined in the official SRA xsd.</xs:documentation>
-                                 </xs:annotation>
+                              </xs:enumeration>
+                              <xs:enumeration value="generic_fastq">
+                                <xs:annotation>
+                                  <xs:documentation>Used internally by DDBJ to load fastq files with variable lengths. Not defined in the official SRA xsd.</xs:documentation>
+                                </xs:annotation>
                               </xs:enumeration>
                             </xs:restriction>
                           </xs:simpleType>
@@ -339,7 +330,6 @@
                                   <xs:documentation> ASCII value 64. Typically used for range 0..60. </xs:documentation>
                                 </xs:annotation>
                               </xs:enumeration>
-
                             </xs:restriction>
                           </xs:simpleType>
                         </xs:attribute>
@@ -368,7 +358,6 @@
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
-
             <xs:attribute name="member_name" type="xs:string" use="optional">
               <xs:annotation>
                 <xs:documentation> Allow for an individual DATA_BLOCK to be associated with a member of a sample pool. </xs:documentation>
@@ -388,7 +377,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-
       <xs:element name="RUN_ATTRIBUTES" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> Properties and attributes of a RUN. These can be entered as free-form tag-value pairs. For certain studies,
@@ -401,9 +389,7 @@
         </xs:complexType>
       </xs:element>
     </xs:sequence>
-
     <xs:attributeGroup ref="NameGroup"/>
-
     <xs:attribute name="run_date" use="optional" type="xs:dateTime">
       <xs:annotation>
         <xs:documentation> ISO date when the run took place. </xs:documentation>
@@ -416,7 +402,6 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
-
   <xs:element name="RUN_SET">
     <xs:complexType>
       <xs:annotation>
@@ -428,6 +413,5 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:element name="RUN" type="RunType"/>
 </xs:schema>

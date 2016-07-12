@@ -2,7 +2,6 @@
 <!-- INSDC Sequence Read Archive resource Common object XML specification -->
 <!-- $Id$ -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
   <xs:attributeGroup name="NameGroup">
     <xs:attribute name="alias" type="xs:string" use="optional">
       <xs:annotation>
@@ -28,7 +27,6 @@
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
-
   <xs:attributeGroup name="RefNameGroup">
     <xs:attribute name="refname" type="xs:string" use="optional">
       <xs:annotation>
@@ -48,7 +46,6 @@
       </xs:annotation>
     </xs:attribute>
   </xs:attributeGroup>
-
   <xs:complexType name="NameAndLabelType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
@@ -60,7 +57,6 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-
   <xs:complexType name="QualifiedNameType">
     <xs:simpleContent>
       <xs:extension base="NameAndLabelType">
@@ -72,7 +68,6 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
-
   <xs:complexType name="IdentifierType">
     <xs:annotation>
       <xs:documentation>Set of record identifiers.</xs:documentation>
@@ -108,7 +103,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="XRefType">
     <xs:all>
       <xs:element name="DB" type="xs:string" minOccurs="1" maxOccurs="1">
@@ -129,7 +123,6 @@
       </xs:element>
     </xs:all>
   </xs:complexType>
-
   <xs:complexType name="AttributeType">
     <xs:annotation>
       <xs:documentation> Reusable attributes to encode tag-value pairs with optional units. </xs:documentation>
@@ -152,7 +145,6 @@
       </xs:element>
     </xs:all>
   </xs:complexType>
-
   <xs:complexType name="LinkType">
     <xs:annotation>
       <xs:documentation> Reusable external links type to encode URL links, Entrez links, and db_xref links. </xs:documentation>
@@ -177,7 +169,6 @@
       <xs:element name="XREF_LINK" type="XRefType"/>
     </xs:choice>
   </xs:complexType>
-
   <xs:complexType name="SpotDescriptorType">
     <xs:annotation>
       <xs:documentation> The SPOT_DESCRIPTOR specifies how to decode the individual reads of
@@ -187,11 +178,9 @@
       the other being an exact specification. </xs:documentation>
     </xs:annotation>
     <xs:choice>
-      
       <xs:element name="SPOT_DECODE_SPEC">
         <xs:complexType>
           <xs:sequence>
-
             <xs:element name="SPOT_LENGTH" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation> Number of base/color calls, cycles, or flows per
@@ -202,7 +191,6 @@
                 will still have a constant flow/cycle length. </xs:documentation>
               </xs:annotation>
             </xs:element>
-            
             <xs:element name="READ_SPEC" minOccurs="1" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:sequence>
@@ -239,7 +227,6 @@
                       </xs:restriction>
                     </xs:simpleType>
                   </xs:element>
-
                   <xs:choice>
                     <xs:annotation>
                       <xs:documentation> There are various methods to ordering the reads on the spot. </xs:documentation>
@@ -269,7 +256,6 @@
                         </xs:documentation>
                       </xs:annotation>
                     </xs:element>
-
                     <xs:element name="EXPECTED_BASECALL_TABLE">
                       <xs:annotation>
                         <xs:documentation> A set of choices of expected basecalls for a current read. Read will be zero-length if none is
@@ -355,7 +341,6 @@
       </xs:element>
     </xs:choice>
   </xs:complexType>
-
   <xs:complexType name="PlatformType">
     <xs:annotation>
       <xs:documentation> The PLATFORM record selects which sequencing platform and platform-specific runtime parameters. This will be
@@ -368,7 +353,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:all>
-            <xs:element name="INSTRUMENT_MODEL" maxOccurs="1" minOccurs="1" type="type454Model" />
+            <xs:element name="INSTRUMENT_MODEL" maxOccurs="1" minOccurs="1" type="type454Model"/>
           </xs:all>
         </xs:complexType>
       </xs:element>
@@ -388,7 +373,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="INSTRUMENT_MODEL" maxOccurs="1" minOccurs="1" type="typeHelicosModel"/>                        
+            <xs:element name="INSTRUMENT_MODEL" maxOccurs="1" minOccurs="1" type="typeHelicosModel"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -398,7 +383,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="INSTRUMENT_MODEL" maxOccurs="1" minOccurs="1" type="typeAbiSolidModel"/>                        
+            <xs:element name="INSTRUMENT_MODEL" maxOccurs="1" minOccurs="1" type="typeAbiSolidModel"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -428,7 +413,7 @@
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="INSTRUMENT_MODEL" maxOccurs="1" minOccurs="1" type="typePacBioModel"/>                        
+            <xs:element name="INSTRUMENT_MODEL" maxOccurs="1" minOccurs="1" type="typePacBioModel"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -455,7 +440,6 @@
       </xs:element>
     </xs:choice>
   </xs:complexType>
-
   <xs:complexType name="SequencingDirectivesType">
     <xs:all>
       <xs:element name="SAMPLE_DEMUX_DIRECTIVE" minOccurs="0" maxOccurs="1">
@@ -501,7 +485,6 @@
       </xs:element>
     </xs:all>
   </xs:complexType>
-
   <xs:complexType name="PipelineType">
     <xs:annotation>
       <xs:documentation> The PipelineType identifies the sequence or tree of actions to process the sequencing data. </xs:documentation>
@@ -547,7 +530,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
   <xs:complexType name="ProcessingType">
     <xs:sequence>
       <xs:element name="PIPELINE" type="PipelineType" minOccurs="0" maxOccurs="1">
@@ -563,7 +545,6 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-
   <!-- STRING ENUMERATIONS BEGIN -->
   <xs:simpleType name="type454Model">
     <xs:restriction base="xs:string">
@@ -575,7 +556,6 @@
       <xs:enumeration value="454 GS Junior"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="typeIlluminaModel">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Illumina Genome Analyzer"/>
@@ -595,13 +575,11 @@
       <xs:enumeration value="NextSeq 550"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="typeHelicosModel">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Helicos HeliScope"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="typeAbiSolidModel">
     <xs:restriction base="xs:string">
       <xs:enumeration value="AB SOLiD System">
@@ -621,20 +599,17 @@
       <xs:enumeration value="AB 5500xl-W Genetic Analysis System"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="typeCGModel">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Complete Genomics"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="typePacBioModel">
     <xs:restriction base="xs:string">
       <xs:enumeration value="PacBio RS"/>
       <xs:enumeration value="PacBio RS II"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="typeIontorrentModel">
     <xs:restriction base="xs:string">
       <xs:enumeration value="Ion Torrent PGM"/>
@@ -642,7 +617,6 @@
       <xs:enumeration value="unspecified"/>
     </xs:restriction>
   </xs:simpleType>
-
   <xs:simpleType name="typeCapillaryModel">
     <xs:restriction base="xs:string">
       <xs:enumeration value="AB 3730xL Genetic Analyzer"/>
@@ -661,8 +635,5 @@
       <xs:enumeration value="PromethION"/>
     </xs:restriction>
   </xs:simpleType>
-
-
   <!-- STRING ENUMERATIONS END -->
-
 </xs:schema>

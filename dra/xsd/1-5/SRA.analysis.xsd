@@ -2,13 +2,9 @@
 <!-- INSDC Sequence Read Archive resource Analysis (SRZ/ERZ/DRZ) object XML specification -->
 <!-- $Id$ -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
   <!--  <xs:include schemaLocation="http://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/sra/doc/SRA_1-5/SRA.common.xsd?view=co"/>  -->
-
   <xs:include schemaLocation="SRA.common.xsd"/>
-
   <xs:complexType name="AnalysisFileType">
-
     <xs:attribute name="filename" type="xs:string" use="required">
       <xs:annotation>
         <xs:documentation>The name or relative pathname of an analysis file. The actual file name extension is irrelevant so long as the
@@ -97,8 +93,6 @@
       </xs:annotation>
     </xs:attribute>
   </xs:complexType>
-
-
   <xs:complexType name="DefaultProcessingType">
     <xs:annotation>
       <xs:documentation> Identify the tools and processing steps used to produce the de novo assembly. </xs:documentation>
@@ -107,7 +101,6 @@
       <xs:element name="PIPELINE" type="PipelineType"/>
     </xs:all>
   </xs:complexType>
-
   <xs:complexType name="AlignmentProcessingType">
     <xs:annotation>
       <xs:documentation> Identify the tools and processing steps used to produce the reference alignment. </xs:documentation>
@@ -117,7 +110,6 @@
       <xs:element name="DIRECTIVES" type="AlignmentDirectivesType"/>
     </xs:all>
   </xs:complexType>
-
   <xs:complexType name="SraLinkType">
     <xs:annotation>
       <xs:documentation> The SraLinkType mechanism encodes local references between SRA objects. These references are local to the Home
@@ -141,7 +133,6 @@
     </xs:attribute>
     <xs:attributeGroup ref="RefNameGroup"/>
   </xs:complexType>
-
   <xs:complexType name="AnalysisType">
     <xs:annotation>
       <xs:documentation> A SRA analysis object captures secondary analysis results from a sequence read dataset. This analysis can the
@@ -212,7 +203,6 @@
                 <xs:documentation> A multiple alignment of short reads against a reference substrate. </xs:documentation>
               </xs:annotation>
               <xs:complexType>
-
                 <xs:sequence>
                   <xs:element name="ASSEMBLY">
                     <xs:annotation>
@@ -220,7 +210,6 @@
                     </xs:annotation>
                     <xs:complexType>
                       <xs:choice>
-
                         <xs:element name="STANDARD">
                           <xs:annotation>
                             <xs:documentation> Short name for the standard reference assembly used in the alignment. This should resolve
@@ -241,7 +230,6 @@
                                   business rules governing the usage of short_name in conjunction with or in lieu of explicit references.
                                 </xs:documentation>
                               </xs:annotation>
-
                             </xs:attribute>
                           </xs:complexType>
                         </xs:element>
@@ -257,13 +245,11 @@
                                     derivative of existing standards</xs:documentation>
                                 </xs:annotation>
                               </xs:element>
-
                               <xs:element name="REFERENCE_SOURCE" type="LinkType" minOccurs="1" maxOccurs="unbounded">
                                 <xs:annotation>
                                   <xs:documentation> A pointer to reference sequences using one of the Link mechanisms. </xs:documentation>
                                 </xs:annotation>
                               </xs:element>
-
                             </xs:sequence>
                           </xs:complexType>
                         </xs:element>
@@ -287,7 +273,6 @@
                                 <xs:documentation>Identifies an SRA Run either by SRA Accession or by refname+refcenter</xs:documentation>
                               </xs:annotation>
                             </xs:attributeGroup>
-
                             <xs:attribute name="data_block_name" use="optional">
                               <xs:annotation>
                                 <xs:documentation> An optional attrtibute matching DATA_BLOCK/@name for a particular data file. This is only
@@ -300,17 +285,12 @@
                                   labeling in BAM. Optional when submitted file use SRA accessions as labels </xs:documentation>
                               </xs:annotation>
                             </xs:attribute>
-
-
-
                           </xs:complexType>
-
                         </xs:element>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
                   <xs:element name="SEQ_LABELS" minOccurs="0" maxOccurs="1">
-
                     <xs:complexType>
                       <xs:annotation>
                         <xs:documentation>Mapping between the reference (sequence dictionary) labels used in the alignment data file, and
@@ -318,7 +298,6 @@
                           accession.version in submitted data.</xs:documentation>
                       </xs:annotation>
                       <xs:sequence>
-
                         <xs:element minOccurs="1" maxOccurs="unbounded" name="SEQUENCE">
                           <xs:annotation>
                             <xs:documentation>Sequences which are labeled by Accession.version are optional in the list</xs:documentation>
@@ -334,7 +313,6 @@
                                 <xs:documentation> NCBI - assigned gi </xs:documentation>
                               </xs:annotation>
                             </xs:attribute>
-
                             <xs:attribute name="data_block_name" type="xs:string" use="optional">
                               <xs:annotation>
                                 <xs:documentation> An optional attrtibute matching DATA_BLOCK/@name for a particular data file. This is only
@@ -347,20 +325,17 @@
                                   label in BAM. Optional when submitted file uses INSDC accession.version</xs:documentation>
                               </xs:annotation>
                             </xs:attribute>
-
                           </xs:complexType>
                         </xs:element>
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
-
                   <xs:element name="PROCESSING" maxOccurs="1" minOccurs="1" type="AlignmentProcessingType">
                     <xs:annotation>
                       <xs:documentation> Identify the tools and processing steps used to produce the reference alignment, and specify
                         directives used to load and interpret the data supplied by the submitter. </xs:documentation>
                     </xs:annotation>
                   </xs:element>
-
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
@@ -402,7 +377,6 @@
           </xs:choice>
         </xs:complexType>
       </xs:element>
-
       <xs:element name="TARGETS" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> SRA object(s) targeted for analysis. Run - One or more runs that are assembled, aligned, or analyzed. Sample -
@@ -410,7 +384,6 @@
             experiment are being assembled, aligned, or analyzed. Study - All the sequencing data for this study are being assembled,
             aligned, or analyzed. </xs:documentation>
         </xs:annotation>
-
         <xs:complexType>
           <xs:sequence minOccurs="1" maxOccurs="unbounded">
             <xs:element name="TARGET" type="SraLinkType" minOccurs="0">
@@ -419,20 +392,15 @@
                   the object of the analysis. </xs:documentation>
               </xs:annotation>
             </xs:element>
-
             <xs:element name="IDENTIFIERS" type="IdentifierType" minOccurs="0" maxOccurs="1">
               <xs:annotation>
                 <xs:documentation> Set of reference IDs to target record. This block is intended to replace the use of the less structured
                   RefNameGroup identifiers. </xs:documentation>
               </xs:annotation>
             </xs:element>
-
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-
-
-
       <xs:sequence>
         <xs:element name="DATA_BLOCK" maxOccurs="unbounded" minOccurs="0">
           <xs:annotation>
@@ -448,11 +416,9 @@
                   </xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
-
                   <xs:sequence>
                     <xs:element maxOccurs="unbounded" minOccurs="1" name="FILE" type="AnalysisFileType"/>
                   </xs:sequence>
-
                 </xs:complexType>
               </xs:element>
             </xs:all>
@@ -462,13 +428,11 @@
                   not needed if there is only one analysis file loaded for the analysis object. </xs:documentation>
               </xs:annotation>
             </xs:attribute>
-
             <xs:attribute name="serial" type="xs:integer" use="optional">
               <xs:annotation>
                 <xs:documentation>Specifies the order in which analysis files should be loaded, if needed.</xs:documentation>
               </xs:annotation>
             </xs:attribute>
-
             <xs:attribute name="member" type="xs:string" use="optional">
               <xs:annotation>
                 <xs:documentation>Member name of the fraction of the analysis file that should be loaded for this data block. Used for
@@ -478,7 +442,6 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-
       <xs:element maxOccurs="1" minOccurs="0" name="ANALYSIS_LINKS">
         <xs:annotation>
           <xs:documentation> Links to resources related to this analysis or analysis set (publication, datasets, online databases).

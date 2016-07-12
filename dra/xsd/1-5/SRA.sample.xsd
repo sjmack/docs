@@ -2,11 +2,8 @@
 <!-- INSDC Sequence Read Archive resource Sample (SRS/ERS/DRS) object XML specification -->
 <!-- $Id$ -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
   <!--  <xs:include schemaLocation="http://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/sra/doc/SRA_1-5/SRA.common.xsd?view=co"/>  -->
-
   <xs:include schemaLocation="SRA.common.xsd"/>
-
   <xs:complexType name="SampleType">
     <xs:annotation>
       <xs:documentation> A Sample defines an isolate of sequenceable material upon which sequencing experiments can be based. The Sample
@@ -65,8 +62,6 @@
           <xs:documentation> Free-form text describing the sample, its origin, and its method of isolation. </xs:documentation>
         </xs:annotation>
       </xs:element>
-
-
       <xs:element name="SAMPLE_LINKS" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> Links to resources related to this sample or sample set (publication, datasets, online databases).
@@ -78,7 +73,6 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
-
       <xs:element name="SAMPLE_ATTRIBUTES" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation> Properties and attributes of a sample. These can be entered as free-form tag-value pairs. For certain studies,
@@ -87,28 +81,22 @@
         <xs:complexType>
           <xs:sequence maxOccurs="unbounded" minOccurs="1">
             <xs:element name="SAMPLE_ATTRIBUTE" type="AttributeType"/>
-
           </xs:sequence>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
     <xs:attributeGroup ref="NameGroup"/>
   </xs:complexType>
-
   <xs:complexType name="SampleSetType">
     <xs:sequence minOccurs="1" maxOccurs="unbounded">
       <xs:element name="SAMPLE" type="SampleType"/>
     </xs:sequence>
   </xs:complexType>
-
   <xs:element name="SAMPLE_SET" type="SampleSetType">
     <xs:annotation>
       <xs:documentation> SAMPLE_SET serves as a container for a set of samples and a name space for establishing referential integrity
         between them. </xs:documentation>
     </xs:annotation>
-
   </xs:element>
-
   <xs:element name="SAMPLE" type="SampleType"/>
-
 </xs:schema>
