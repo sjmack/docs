@@ -10,7 +10,7 @@ New schema effective from 13 July 2016: [SRA.experiment.xsd](/xsd/1-5/SRA.experi
 	* cDNA_randomPriming  
 	* cDNA_oligo_dT  
 	* PolyA  
-	* Oligo-dT and Inverse rRNA.  
+	* Oligo-dT and Inverse rRNA  
 
 ### Library strategy changes  
 
@@ -20,7 +20,7 @@ New schema effective from 13 July 2016: [SRA.experiment.xsd](/xsd/1-5/SRA.experi
 	* Hi-C  
 	* ATAC-seq  
 	* Targeted-Capture  
-	* Tethered Chromatin Conformation Capture and Synthetic-Long-Read.  
+	* Tethered Chromatin Conformation Capture and Synthetic-Long-Read  
 
 ### Instrument model changes  
 
@@ -30,5 +30,5 @@ New schema effective from 13 July 2016: [SRA.experiment.xsd](/xsd/1-5/SRA.experi
 	* HiSeq X Five  
 	* NextSeq 550 and PromethION  
 
-	
+
 
