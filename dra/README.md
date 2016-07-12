@@ -25,7 +25,7 @@ New schema effective from 13 July 2016: [SRA.experiment.xsd](/xsd/1-5/SRA.experi
 ### Instrument model changes  
 
 * New instrument models:  
-	* lumina HiSeq 3000  
+	* Ilumina HiSeq 3000  
 	* Illumina HiSeq 4000  
 	* HiSeq X Five  
 	* NextSeq 550 and PromethION  
