@@ -2,7 +2,7 @@
 
 ## Changes to Experiment XML 1.5e on 13 July 2016  
 
-New schema effective from 13 July 2016: [SRA.experiment.xsd](/1-5/SRA.experiment.xsd)  
+New schema effective from 13 July 2016: [SRA.experiment.xsd](https://github.com/ddbj/docs/blob/master/dra/xsd/1-5/SRA.experiment.xsd)  
 
 ### Library selection changes  
 
